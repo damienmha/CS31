@@ -1,0 +1,18 @@
+Damien Ha
+905539967
+
+isValidQC was the most difficult function to create and by far the most time consuming. Initially, I tried using only one loop to integrate through all the characters in the string and later after talking it out with classmates realized this would be either very hard or impossible to do properly. Beyond that, I had some difficulty working with numerical values within the strings and being able to use them to calculate the correct values of tests, passes, and defects. Being able to use stoi() greatly helped with this. There were also times I wasn't using stoi() correctly initially, such as in passQC, and I resolved this by first adding the character digit representing the number to an empty string before converting to integer.
+
+isValidQC checks if the input string is empty, and if it is, returns false. If not, it iterates over each batch of QC tests and runs while there are new batches and the index is less than the total length of the string. As it goes through the characters in the string, it adds the total number of tests (numbers following a 'Q'), and the number of passes and defects (digits following 'p' and 'd' respectively), to integer variables and ensures they correctly sum together. It also check other necessary conditions such as needing values for each place, needing to properly sum together, needing more than 0 batches, etc. passQC invokes this function making sure the test is valid first, and if it is valid, then it iterates through the characters in the string, finds where there is a 'p', adds the following character to a string variable and converts it to an integer so it can be used to sum the total passes. defectQC does the same but for defects, and totalQC returns the sum of passes and defects if the string is valid. All 3 of the latter mentioned functions return -1 for invalid QCs. batches() also checks for validity, and if satisfied, iterates over the string and counts the number of 'Q's as a 'Q' represents the start of a new batch.
+
+Some potential test cases:
+-Q2p1d1 is an ordinary and valid test with 1 batch, 1 pass and 1 defect
+-Q2p1d1Q3p2d1 has 2 batches, 3 passes and 2 defects and can be used to ensure multiple batches work
+-Q3p2d1Q6d3p3 should be valid with 2 batches, 9 tests, 5 passes, 4 defects, and this test shows that with multiple batches, passes and defects can be reported in either order, even differing between batches and will still be valid
+-Q100p50d50 should properly evaluate to 50 each passes  and defects to show numbers with multiple digits work
+-Q1p1d0 and Q1p0d1 are valid, as there can be 0 defects or passes as ling as there are not 0 tests in total
+-Q0p0d0 should be invalid because strings with 0 results are invalid
+-strings such as Qp2d3, Q3pd1, Q5p4d, are all missing a value for either number of batches, passes, or defects and should be invalid
+-Q100p1d1 does not work mathematically, i.e. 1+1!=100 and so it should be invalid
+-Q2p1d1bruce_huang will be invalid due to extra characters in addition to the pass/defect/test results
+-Q5p00003d0002 and Q05p2d3 will be invalid due to leading 0's 

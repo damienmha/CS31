@@ -1,0 +1,14 @@
+Damien Ha
+905539967
+
+One challenge I encountered was due to my own misunderstanding of the project spec. I didn't realize that the mutator methods in BloodDonation.h were void types, but mistakenly thought that the types of the inputs specified in the spec were return types for those methods. When I looked on piazza at people discussing this, I realized I was mistaken. I also spent awhile foolishly trying to write a setID method checking the length of the argument and each character until I realized that every possible employee number would fall in a certain range and I could simply check that way.
+
+Test data could include the following:
+IDs of 1, 100000, 200000, 999999, and 123456789. The first and last values should prove to be invalid because they aren't six digit number that qualify for ID numbers, and the middle 3 values should show that the entire range of six digit numbers including the bounds are valid.
+
+Ages of 18, 21, 30, 65, and 100. Again, the first and last values should prove to be invalid because they're out of range, and the middle 3 values should show that the entire range numbers from 21 to 65 including the bounds of 21 and 65 are valid.
+
+Weights of 101.00, 200.00, and 280.00 should prove to be valid while weights of -5, 10, or 300 are out of range and should be invalid. 
+I would like to point out that the provided example main function uses std::to_string() which defaults to 6 decimal places. My program does not handle cases where std::to_string is used and the test data in the asset statements is not specified at 6 decimal places.
+
+Some combination of valid IDs, ages, and weights should be able to make up a vacation account with a balance of 4.000000 and some combination of invalid values or valid values with at least one invalid should have a balance of 0.000000

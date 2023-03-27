@@ -1,0 +1,13 @@
+Damien Ha
+905539967
+Project 5 Report
+
+At one point, within the FrequentFlyerAccount.cpp, I was trying to create a PlaneFlight object but I did it incorrectly because I accidentally called the arguments in the wrong order and it took me awhile to notice I had done this. I also did not notice at first that in the project spec the FreeFlight member function that the flight was passed by reference and so I ended up having to go back and change that later on. Finally, I had some trouble just generally doing the numbers/math/addition+subtraction for the FrequentFlyersAccount because I would sometimes forget what values were measured in mileage versus money.
+
+Some test cases that could be used to test this program are:
+PlaneFlight californiaNevada("Damien", "LAX", "LAS", 49.00, 285);
+PlaneFlight californiaNewYork("Lisa", "SJC", "NYC", 399.00, 2800);
+PlaneFlight Bruce("Bruce", "Bruce", "Bruce", 0, 1);
+PlaneFlight californiaTexas("Tyler", "LAX", "ELP", 0, 1);
+PlaneFlight zero("Tyler", "LAX", "ELP", 0, 0);
+So the program can test cases with reasonable input as well as cases where the to and from city are the same and cases where the numerical inputs are 0

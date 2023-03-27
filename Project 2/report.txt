@@ -1,0 +1,21 @@
+Damien Ha
+UID: 905539967
+
+Obstacles:
+-At first, I was couldn't input states or months with spaces in them. I fixed this by using std::getline()
+-At one point, I was not able to input a month. I forgot to use cin.ignore() which flushes the previous line out of the keyboard buffer; after using cin.ignore() this was fixed
+-Free tax days in Texas initially did not work because I had made a typo and set one of the conditions to month != “August” when it should have been month == “August”. This was resolved after I fixed the typo
+-I had to spellcheck my months and states; the program would not work properly if I misspelled them
+
+Test Inputs:
+-A state name with a space before or after it such as “California ” or “ Nevada” should yield an output of “Invalid state!” as spaces are incorrect spelling 
+-Inputting a state name that is spelled correctly except for capitalization, such as “utah” yields an output of “Invalid state!” because lowercase first letters of state names count as incorrect spelling of state names
+-(Assuming previous inputs are valid), a purchase amount of 0 should result in an output of “Invalid amount!” because purchase amounts must be positive numbers
+-Inputting a negative purchase amount like -1 should result in an output of “Invalid amount!”; purchase amounts must be positive numbers
+-(Assuming previous inputs are valid) inputting a month with a space before or after its name, like “June ” or “ July” should yield an output of “Invalid month!”. Spaces count as incorrect spelling of the month
+-Inputting a month that's spelled right but not capitalized, such as “march” should yield an output of “Invalid month!” as lower case first letters are incorrect spelling
+-(If previous inputs are valid) inputting numbers <1 for the day, such as 0, or numbers >31 such as 33 for day should result in an output of “Invalid day!” because only days numbered 1 to 31 are valid days.
+-(Assuming other prior inputs are valid) inputting numbers <1 such as 0 for the year or numbers >2025 such as 2026 for year should result in an output of “Invalid year!” because the program only works for years 1 to 2025
+-Inputs of “Texas” for state name, 30.56 for amount, “January” for the month, 1 for the day, and 2021 for the year should result in an output of “Please pay a total of $33.06” because all the inputs are valid and $33.06 is the result of the correct calculation of total cost with tax.
+-Inputs of “Alabama” for state name, 30 for amount, “July” for the month, 15 for the day, and 2022 for the year should result in an output of “Please pay a total of $30.00” because all the inputs are valid. This test case is to test free tax days, one of which is July 15th in Alabama. $30.00 the correct calculation of total cost for an amount of $30 on free tax day.
+-Given other reasonable input, inputs such as “February” for month and 31 for day should properly calculate the tax, as “February” is a valid month and 31 is a valid day, even though February 31st doesn't exist in real life. If done for the state “Texas” for an amount of 30.56 in 2020 for example, the program should return “Please pay a total of $33.06”

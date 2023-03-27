@@ -1,0 +1,31 @@
+Damien Ha
+UID: 905539967
+
+In locateMaximum() I initially tried to use a method using only one for loop that found the maximum element and then got its index based on whatever it was, but this gave me a warning that there was loss of integer precision. When I changed by approach to a texted for loop, this warning went away. In countFloatingPointValues(), at first I attempted to use isdigit() on a string but it only works on characters, and getting an accurate count if iterating through the characters in each string was a bit harder for me to wrap my head around. I discussed it with a friend and they pointed out that I could instead check whether each character was a number or decimal and make sure that numbers and decimals occupied the entirety of the string. In hasNoCapitals(), I at first tried to write a condition that checked if a character was in a list of capital letters 'A', 'B', 'C', etc. until I remembered that comparison operators work on letters too. Finally, for shiftLeft(), I had to re-read the directions to understand what was going on in this function at all, because at first I thought the shift was by character which would have made things much more complicated. 
+
+Some test cases I used are as follows:
+string folks[9] = { "samwell", "jon", "margaery", "daenerys", "tyrion", "sansa", "magdalena", "jon", "z"};
+    string folks2[8] = {"samwell", "jon", "margaery", "daenerys", "tyrion", "sansa", "magdalena", "jon"};
+    string stuff[4] = {"zebra", "5", "Bruce huang", "8.2"};
+    string data[5] = { "Hello", "World!", "2048,", "3.14", "python is better"};
+    string a[6] = {"123", "456", "789", "gamma", "beta", "delta" };
+    string b[6] = {"0123", "456", "10.5L", "alpha", "beta", "omega" };
+    assert(locateMaximum(folks, 9) == 8);
+    assert(locateMaximum(folks2, 8) == 4);
+    assert(locateMaximum(stuff, 4) == 0);
+    assert(locateMaximum(folks, 0) == -1);
+    assert(hasNoCapitals(a, 0) == true);
+    assert(hasNoCapitals(data, 3) == false);
+    assert(hasNoCapitals(a, 6) == true);
+    assert(hasNoCapitals(folks, 6) == true);
+    assert(hasNoCapitals(stuff, 4) == false);
+    assert(countFloatingPointValues(data, 5) == 1);
+    assert(countFloatingPointValues(a, 3) == 3);
+    assert(countFloatingPointValues(b, 5) == 2);
+    assert(countFloatingPointValues(stuff, 4) == 2);
+    assert(countFloatingPointValues(folks, 9) == 0);
+    assert(shiftLeft(folks, 9, 5, "foo") == 5);
+    assert(shiftLeft(data, 5, 2, "hello world") == 2);
+    assert(shiftLeft(folks, 9, 6, "damien") == 6);
+    assert(shiftLeft(data, 0, -1, ".") == -1);
+Each function should have a "base case" tested where the input returns -1 (or true for hasNoCapitals()) because of illogical or empty input. The other test cases should test the program normally, with certain key elements making sure each function is thoroughly working, like the "10.5L" in b making sure countFloatingPointValues() does not misidentify strings that are not entirely numeric.
